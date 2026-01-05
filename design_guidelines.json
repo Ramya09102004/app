@@ -1,0 +1,181 @@
+{
+  "identity": {
+    "persona": "E1 - The Anti-AI Designer",
+    "mission": "Create a trustworthy, organic, and modern accommodation finder that feels like a hospitality brand, not a cold database.",
+    "principles": [
+      "Fusion: Hospitality Warmth + Tech Precision",
+      "Emotion: Safety, Community, Clarity",
+      "Content: Story-driven listings, not just data points",
+      "Zoom: Focus on texture and details (linens, sunlight)",
+      "Negative Space: Generous breathing room for trust"
+    ]
+  },
+  "design_system": {
+    "theme": {
+      "mode": "light",
+      "strategy": "Organic & Earthy (Trust/Growth) with a Tech Twist"
+    },
+    "typography": {
+      "headings": {
+        "family": "Manrope, sans-serif",
+        "weights": ["600", "700", "800"],
+        "usage": "Main headers, section titles. Use tight tracking (-0.02em)."
+      },
+      "body": {
+        "family": "Inter, sans-serif",
+        "weights": ["400", "500"],
+        "usage": "Paragraphs, UI labels, inputs."
+      },
+      "accent": {
+        "family": "Space Grotesk, monospace",
+        "weights": ["500"],
+        "usage": "Prices, data metrics, badges."
+      }
+    },
+    "colors": {
+      "palette": {
+        "primary": "#2D4A3E",
+        "primary_foreground": "#FFFFFF",
+        "secondary": "#E8F3E8",
+        "secondary_foreground": "#2D4A3E",
+        "accent": "#FF6B35",
+        "accent_foreground": "#FFFFFF",
+        "background": "#FAFAF9",
+        "foreground": "#1C1917",
+        "card": "#FFFFFF",
+        "card_foreground": "#1C1917",
+        "border": "#E7E5E4",
+        "input": "#E7E5E4",
+        "muted": "#F5F5F4",
+        "muted_foreground": "#78716C"
+      },
+      "usage_rules": [
+        "Primary (Deep Moss): Brand identity, headers, active states.",
+        "Accent (Sunset Orange): Primary CTAs (Book Now, Search). Use sparingly.",
+        "Background (Warm White): Main canvas. Avoid pure #FFFFFF for backgrounds, use #FAFAF9.",
+        "Text: Never pure black. Use #1C1917 (Warm Black) or #78716C (Stone Grey)."
+      ]
+    },
+    "spacing": {
+      "scale": "Tailwind default but shifted up (p-4 -> p-6)",
+      "container_padding": "px-6 md:px-12 lg:px-24",
+      "section_gap": "gap-16 md:gap-24"
+    },
+    "visual_enhancers": {
+      "radius": "rounded-xl",
+      "shadows": {
+        "card": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "hover": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "glass": "0 8px 32px 0 rgba(31, 38, 135, 0.07)"
+      },
+      "glassmorphism": "backdrop-filter backdrop-blur-lg bg-white/70 border border-white/20",
+      "textures": "Subtle noise overlay on solid backgrounds to reduce digital flatness."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white rounded-full px-8 py-3 hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+      "secondary": "bg-secondary text-primary rounded-full px-8 py-3 hover:bg-secondary/80 transition-all",
+      "outline": "border-2 border-primary text-primary rounded-full px-8 py-3 hover:bg-primary/5 transition-all"
+    },
+    "cards": {
+      "listing": "bg-white rounded-2xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 group",
+      "feature": "bg-muted/50 p-8 rounded-2xl border border-transparent hover:border-border transition-all"
+    },
+    "inputs": {
+      "search": "h-14 pl-12 rounded-full border-transparent bg-white shadow-lg focus:ring-2 focus:ring-primary/20 text-lg placeholder:text-muted-foreground/70"
+    }
+  },
+  "layouts": {
+    "landing_hero": {
+      "type": "Split or Centered with Floating Search",
+      "structure": "Large emotional image + Floating Search Bar (Glassmorphism) + Trust Badges"
+    },
+    "listing_grid": {
+      "type": "Tetris Grid",
+      "rules": "Mix of col-span-1 and col-span-2 cards. Don't make everything uniform."
+    },
+    "dashboard": {
+      "type": "Control Room",
+      "structure": "Sidebar Navigation + Dense Data Grid. Use white cards on muted background."
+    }
+  },
+  "assets": {
+    "image_urls": {
+      "hero": [
+        {
+          "url": "https://images.unsplash.com/photo-1758270705657-f28eec1a5694?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHVuaXZlcnNpdHklMjBzdHVkZW50cyUyMHN0dWR5aW5nJTIwdG9nZXRoZXJ8ZW58MHx8fHwxNzY3NjE2MTIzfDA&ixlib=rb-4.1.0&q=85",
+          "desc": "Happy students taking selfie - Hero Main",
+          "category": "hero"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1758957851828-5179f0e06985?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGV4dGVyaW9yJTIwc3Vubnl8ZW58MHx8fHwxNzY3NjE2MTI1fDA&ixlib=rb-4.1.0&q=85",
+          "desc": "Modern building exterior with lawn - Hero Background",
+          "category": "hero"
+        }
+      ],
+      "listings": [
+        {
+          "url": "https://images.unsplash.com/photo-1745221847962-0397cc719b8e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHw0fHxtb2Rlcm4lMjBjb3p5JTIwYmVkcm9vbSUyMGludGVyaW9yJTIwc3R1ZGVudHxlbnwwfHx8fDE3Njc2MTYxMjF8MA&ixlib=rb-4.1.0&q=85",
+          "desc": "Modern minimalist bedroom with desk",
+          "category": "listing"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1609587639086-b4cbf85e4355?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjb3p5JTIwYmVkcm9vbSUyMGludGVyaW9yJTIwc3R1ZGVudHxlbnwwfHx8fDE3Njc2MTYxMjF8MA&ixlib=rb-4.1.0&q=85",
+          "desc": "Cozy bed with black linen",
+          "category": "listing"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1677658288024-b6b9ed29354e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBjb3p5JTIwYmVkcm9vbSUyMGludGVyaW9yJTIwc3R1ZGVudHxlbnwwfHx8fDE3Njc2MTYxMjF8MA&ixlib=rb-4.1.0&q=85",
+          "desc": "Bed with pillows",
+          "category": "listing"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1675118546055-32c56579cc58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBhcGFydG1lbnQlMjBidWlsZGluZyUyMGV4dGVyaW9yJTIwc3Vubnl8ZW58MHx8fHwxNzY3NjE2MTI1fDA&ixlib=rb-4.1.0&q=85",
+          "desc": "White apartment building exterior",
+          "category": "listing"
+        }
+      ],
+      "community": [
+        {
+          "url": "https://images.unsplash.com/photo-1758270705641-acf09b68a91f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxoYXBweSUyMHVuaXZlcnNpdHklMjBzdHVkZW50cyUyMHN0dWR5aW5nJTIwdG9nZXRoZXJ8ZW58MHx8fHwxNzY3NjE2MTIzfDA&ixlib=rb-4.1.0&q=85",
+          "desc": "Students in lecture hall",
+          "category": "community"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1758270705140-4e39219d4bba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHw0fHxoYXBweSUyMHVuaXZlcnNpdHklMjBzdHVkZW50cyUyMHN0dWR5aW5nJTIwdG9nZXRoZXJ8ZW58MHx8fHwxNzY3NjE2MTIzfDA&ixlib=rb-4.1.0&q=85",
+          "desc": "Students recording video",
+          "category": "community"
+        }
+      ]
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px (Light/Elegant)",
+      "usage": "Use consistent sizing (w-5 h-5 for UI, w-8 h-8 for features)."
+    }
+  },
+  "instructions_to_main_agent": {
+    "setup": [
+      "Install fonts: Manrope and Space Grotesk via Google Fonts or Fontsource.",
+      "Update tailwind.config.js with the new color palette (Deep Moss, Sunset Orange, Warm White).",
+      "Override Shadcn CSS variables in index.css to match the 'Organic & Earthy' theme."
+    ],
+    "implementation_rules": [
+      "DO NOT use generic blue (#3B82F6) anywhere.",
+      "Use 'Manrope' for all headings. Use 'Inter' for body.",
+      "Ensure all cards have a subtle border and hover lift.",
+      "Use the provided image URLs for placeholders. Do not use random picsum images.",
+      "For the Search Bar: Make it prominent, pill-shaped, and floating with a shadow.",
+      "For Dashboards: Keep it clean. Use white cards on the #FAFAF9 background.",
+      "Add 'data-testid' to all interactive elements."
+    ],
+    "universal_guidelines": [
+      "Create depth through layered design elements with z-index hierarchy.",
+      "Use glass-morphism effects with backdrop filters (12-24px blur) for sticky headers.",
+      "Every interaction needs micro-animations - hover states, transitions.",
+      "Use 2-3x more spacing than feels comfortable.",
+      "NEVER use AI assistant Emoji characters."
+    ]
+  }
+}
