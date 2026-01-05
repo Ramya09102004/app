@@ -126,56 +126,93 @@ const SearchPage = ({ user, onLogout }) => {
           {/* Filters Panel */}
           {showFilters && (
             <Card className="mt-4 p-6">
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="space-y-2">
-                  <Label>Price Range (₹/month)</Label>
-                  <div className="pt-4">
-                    <Slider
-                      min={0}
-                      max={50000}
-                      step={1000}
-                      value={[filters.minPrice, filters.maxPrice]}
-                      onValueChange={(value) => setFilters({...filters, minPrice: value[0], maxPrice: value[1]})}
-                      data-testid="price-slider"
-                    />
-                    <div className="flex justify-between mt-2 text-sm text-muted-foreground price-font">
-                      <span>₹{filters.minPrice}</span>
-                      <span>₹{filters.maxPrice}</span>
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="space-y-2">
+                    <Label>Price Range (₹/month)</Label>
+                    <div className="pt-4">
+                      <Slider
+                        min={0}
+                        max={50000}
+                        step={1000}
+                        value={[filters.minPrice, filters.maxPrice]}
+                        onValueChange={(value) => setFilters({...filters, minPrice: value[0], maxPrice: value[1]})}
+                        data-testid="price-slider"
+                      />
+                      <div className="flex justify-between mt-2 text-sm text-muted-foreground price-font">
+                        <span>₹{filters.minPrice}</span>
+                        <span>₹{filters.maxPrice}</span>
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Room Type</Label>
+                    <Select value={filters.roomType} onValueChange={(value) => setFilters({...filters, roomType: value})}>
+                      <SelectTrigger data-testid="room-type-select">
+                        <SelectValue placeholder="Any" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="single">Single</SelectItem>
+                        <SelectItem value="double">Double</SelectItem>
+                        <SelectItem value="triple">Triple</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Gender Preference</Label>
+                    <Select value={filters.genderPreference} onValueChange={(value) => setFilters({...filters, genderPreference: value})}>
+                      <SelectTrigger data-testid="gender-select">
+                        <SelectValue placeholder="Any" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="male">Male</SelectItem>
+                        <SelectItem value="female">Female</SelectItem>
+                        <SelectItem value="any">Any</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Room Type</Label>
-                  <Select value={filters.roomType} onValueChange={(value) => setFilters({...filters, roomType: value})}>
-                    <SelectTrigger data-testid="room-type-select">
-                      <SelectValue placeholder="Any" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="single">Single</SelectItem>
-                      <SelectItem value="double">Double</SelectItem>
-                      <SelectItem value="triple">Triple</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label>Amenities</Label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {["WiFi", "AC", "Attached Bathroom", "Power Backup", "TV", "Fridge", "Washing Machine", "Hot Water", "Parking", "Security"].map((amenity) => (
+                      <div key={amenity} className="flex items-center space-x-2">
+                        <input
+                          type="checkbox"
+                          id={`amenity-${amenity}`}
+                          checked={filters.amenities.includes(amenity)}
+                          onChange={(e) => {
+                            const newAmenities = e.target.checked
+                              ? [...filters.amenities, amenity]
+                              : filters.amenities.filter(a => a !== amenity);
+                            setFilters({...filters, amenities: newAmenities});
+                          }}
+                          className="w-4 h-4 rounded border-input"
+                          data-testid={`amenity-filter-${amenity.toLowerCase().replace(/\s/g, '-')}`}
+                        />
+                        <Label htmlFor={`amenity-${amenity}`} className="text-sm cursor-pointer">{amenity}</Label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label>Gender Preference</Label>
-                  <Select value={filters.genderPreference} onValueChange={(value) => setFilters({...filters, genderPreference: value})}>
-                    <SelectTrigger data-testid="gender-select">
-                      <SelectValue placeholder="Any" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="male">Male</SelectItem>
-                      <SelectItem value="female">Female</SelectItem>
-                      <SelectItem value="any">Any</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="flex items-end">
-                  <Button onClick={handleApplyFilters} className="w-full rounded-full bg-accent hover:bg-accent/90 text-white" data-testid="apply-filters-btn">
+                <div className="flex gap-3">
+                  <Button onClick={handleApplyFilters} className="flex-1 rounded-full bg-accent hover:bg-accent/90 text-white" data-testid="apply-filters-btn">
                     Apply Filters
+                  </Button>
+                  <Button 
+                    onClick={() => {
+                      setFilters({city: "", minPrice: 0, maxPrice: 50000, roomType: "", genderPreference: "", amenities: []});
+                      setShowFilters(false);
+                    }} 
+                    variant="outline"
+                    className="rounded-full"
+                    data-testid="clear-filters-btn"
+                  >
+                    Clear All
                   </Button>
                 </div>
               </div>
