@@ -224,7 +224,8 @@ async def get_pgs(
     min_price: Optional[float] = None,
     max_price: Optional[float] = None,
     room_type: Optional[str] = None,
-    gender_preference: Optional[str] = None
+    gender_preference: Optional[str] = None,
+    amenities: Optional[str] = None
 ):
     query = {}
     if city:
@@ -239,6 +240,9 @@ async def get_pgs(
         query["room_type"] = room_type
     if gender_preference:
         query["gender_preference"] = {"$in": [gender_preference, "any"]}
+    if amenities:
+        amenity_list = [a.strip() for a in amenities.split(",")]
+        query["amenities"] = {"$all": amenity_list}
     
     pgs = await db.pgs.find(query, {"_id": 0}).to_list(100)
     return [PGResponse(**pg) for pg in pgs]
