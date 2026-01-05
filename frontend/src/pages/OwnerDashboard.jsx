@@ -251,29 +251,29 @@ const OwnerDashboard = ({ user, onLogout }) => {
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Room Type</Label>
-          <Select value={formData.room_type} onValueChange={(value) => setFormData({...formData, room_type: value})}>
-            <SelectTrigger data-testid="pg-roomtype-select">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="single">Single</SelectItem>
-              <SelectItem value="double">Double</SelectItem>
-              <SelectItem value="triple">Triple</SelectItem>
-            </SelectContent>
-          </Select>
+          <select
+            value={formData.room_type}
+            onChange={(e) => setFormData({...formData, room_type: e.target.value})}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            data-testid="pg-roomtype-select"
+          >
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="triple">Triple</option>
+          </select>
         </div>
         <div className="space-y-2">
           <Label>Gender Preference</Label>
-          <Select value={formData.gender_preference} onValueChange={(value) => setFormData({...formData, gender_preference: value})}>
-            <SelectTrigger data-testid="pg-gender-select">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="male">Male</SelectItem>
-              <SelectItem value="female">Female</SelectItem>
-              <SelectItem value="any">Any</SelectItem>
-            </SelectContent>
-          </Select>
+          <select
+            value={formData.gender_preference}
+            onChange={(e) => setFormData({...formData, gender_preference: e.target.value})}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            data-testid="pg-gender-select"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="any">Any</option>
+          </select>
         </div>
       </div>
       <div className="space-y-2">
