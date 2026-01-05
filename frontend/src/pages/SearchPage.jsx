@@ -22,7 +22,8 @@ const SearchPage = ({ user, onLogout }) => {
     minPrice: 0,
     maxPrice: 50000,
     roomType: "",
-    genderPreference: ""
+    genderPreference: "",
+    amenities: []
   });
   const [showFilters, setShowFilters] = useState(false);
 
