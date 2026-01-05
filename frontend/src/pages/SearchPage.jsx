@@ -40,6 +40,7 @@ const SearchPage = ({ user, onLogout }) => {
       if (filters.maxPrice < 50000) params.append('max_price', filters.maxPrice);
       if (filters.roomType) params.append('room_type', filters.roomType);
       if (filters.genderPreference) params.append('gender_preference', filters.genderPreference);
+      if (filters.amenities.length > 0) params.append('amenities', filters.amenities.join(','));
 
       const response = await axios.get(`${API}/pgs?${params.toString()}`);
       setPgs(response.data);
